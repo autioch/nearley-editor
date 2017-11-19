@@ -20,8 +20,7 @@ const config = {
   },
   output: {
     path: PATH_BUILD,
-    filename: join(PATH_ASSETS, `index${NAME_SUFFIX}.js`),
-    publicPath: '/'
+    filename: join(PATH_ASSETS, `index${NAME_SUFFIX}.js`)
   },
   module: {
     rules: [{
@@ -78,18 +77,14 @@ const config = {
 };
 
 if (IS_PRODUCTION) {
+  config.output.publicPath = '/nearley-editor';
   config.plugins.push(
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: '"production"'
+        NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
+    new webpack.optimize.UglifyJsPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })

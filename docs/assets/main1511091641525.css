@@ -45,10 +45,13 @@
     color: #fff;
     background-color: #141414;
     border-bottom: transparent; }
+  .tab:hover > .tab__remove {
+    opacity: 1; }
 
 .tab__remove {
   padding: .25em;
-  margin-left: .5em; }
+  margin-left: .5em;
+  opacity: 0; }
   .tab__remove:hover {
     color: #6df; }
 

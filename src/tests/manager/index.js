@@ -91,3 +91,21 @@ export function importTests(tabs, activeTab, fileContents) {
     tabs: tabs.slice()
   };
 }
+
+const URL_DECAY_TIMEOUT = 5000;
+
+const windowURL = window.URL || window.webkitURL;
+
+export function exportTests(activeTab) {
+  const anchorElement = document.createElement('a');
+  const lines = activeTab.tests.map((testItem) => testItem.value).join('\n');
+  const href = windowURL.createObjectURL(new Blob([lines], {
+    type: 'text/json'
+  }));
+
+  anchorElement.href = href;
+  anchorElement.download = `${activeTab.name}.tests.txt`;
+  anchorElement.click();
+
+  setTimeout(() => windowURL.revokeObjectURL(href), URL_DECAY_TIMEOUT);
+}

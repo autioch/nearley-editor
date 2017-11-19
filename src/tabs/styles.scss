@@ -20,11 +20,16 @@
     background-color: #141414;
     border-bottom: transparent;
   }
+
+  &:hover > .tab__remove {
+    opacity: 1;
+  }
 }
 
 .tab__remove {
   padding: .25em;
   margin-left: .5em;
+  opacity: 0;
 
   &:hover {
     color: #6df;

@@ -5,7 +5,9 @@ import Tabs from './tabs'; // eslint-disable-line no-unused-vars
 import Editor from './editor'; // eslint-disable-line no-unused-vars
 import Tests from './tests'; // eslint-disable-line no-unused-vars
 import { deleteTab, addTab, setEditorValue, setTabLabel, defaultTabs, setLastId } from './tabs/manager';
-import { generateTest, addTest, setTestValue, deleteTest, setLastId as setLastTestId, importTests } from './tests/manager';
+import {
+  generateTest, addTest, setTestValue, deleteTest, setLastId as setLastTestId, importTests, exportTests
+} from './tests/manager';
 
 import './styles.scss';
 
@@ -19,6 +21,7 @@ class App extends Component { // eslint-disable-line no-unused-vars
     this.addTest = this.addTest.bind(this);
     this.deleteTab = this.deleteTab.bind(this);
     this.deleteTest = this.deleteTest.bind(this);
+    this.exportTests = this.exportTests.bind(this);
     this.generateTest = this.generateTest.bind(this);
     this.importTests = this.importTests.bind(this);
     this.resetTabs = this.resetTabs.bind(this);
@@ -110,6 +113,10 @@ class App extends Component { // eslint-disable-line no-unused-vars
     reader.readAsText(ev.target.files[0]);
   }
 
+  exportTests() {
+    exportTests(this.activeTab());
+  }
+
   render() {
     const { activeIndex, tabs } = this.state;
     const { editorValue, tests, errors } = this.activeTab();
@@ -138,6 +145,7 @@ class App extends Component { // eslint-disable-line no-unused-vars
             generateTest={this.generateTest}
             setTestValue={this.setTestValue}
             deleteTest={this.deleteTest}
+            exportTests={this.exportTests}
             importTests={this.importTests}
           />
         </div>

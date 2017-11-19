@@ -4,7 +4,7 @@ import ImportOption from './import';
 
 import './styles.scss';
 
-export default function Tests({ tests, addTest, generateTest, setTestValue, importTests, deleteTest }) {
+export default function Tests({ tests, addTest, generateTest, setTestValue, importTests, deleteTest, exportTests }) {
   return <div
     className="test"
     onKeyPress={(ev) => {
@@ -28,6 +28,7 @@ export default function Tests({ tests, addTest, generateTest, setTestValue, impo
       <div className="test__option" onClick={addTest}>+</div>
       <div className="test__option" onClick={generateTest}>Generate</div>
       <ImportOption importTests={importTests} />
+      <div className="test__option" onClick={exportTests}>Export</div>
     </div>
   </div>;
 }
