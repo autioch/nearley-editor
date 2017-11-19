@@ -11,7 +11,8 @@ const PORT = 9000;
 const PATH_PROJECT = join(__dirname, '..');
 const PATH_SOURCE = join(PATH_PROJECT, 'src');
 const PATH_BUILD = join(PATH_PROJECT, 'docs');
-const PATH_DATA = 'data';
+
+// const PATH_DATA = 'data';
 const PATH_ASSETS = 'assets';
 
 const config = {
@@ -38,10 +39,16 @@ const config = {
         use: ['css-loader', 'sass-loader']
       })
     }, {
-      test: /\.(png|jpg|gif|svg|ico)$/,
+      test: /\.(png|jpg|gif|svg)$/,
       loader: 'file-loader',
       options: {
-        name: join(PATH_DATA, '[name].[ext]')
+        name: join(PATH_ASSETS, '[name].[ext]')
+      }
+    }, {
+      test: /\.(ico)$/,
+      loader: 'file-loader',
+      options: {
+        name: '[name].[ext]'
       }
     }, {
       test: /\.ne$/,

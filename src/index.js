@@ -11,6 +11,7 @@ import {
 import debounce from 'lodash.debounce';
 
 import './styles.scss';
+import './favicon.ico';
 
 const LOCAL_STORAGE_ID = 'nearley-editor-1.0.0';
 const INPUT_DEBOUNCE = 250;
