@@ -693,6 +693,29 @@ span.CodeMirror-selectedtext {
   height: 1px;
   background-color: transparent;
   color: transparent; }
+
+.test__option--errors {
+  color: #777; }
+  .test__option--errors.is-active {
+    color: #f33; }
+
+.test__option--ambiguous {
+  color: #777; }
+  .test__option--ambiguous.is-active {
+    color: #ff3; }
+
+.test__option--matches {
+  color: #777; }
+  .test__option--matches.is-active {
+    color: #3f3; }
+
+.test__option--results {
+  color: #777; }
+  .test__option--results.is-active {
+    color: #fff; }
+
+.test__checkbox {
+  margin: 0 .25em 0 0; }
 body {
   margin: 0;
   font-family: monospace;

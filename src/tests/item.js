@@ -1,7 +1,7 @@
 import React from 'react'; // eslint-disable-line no-unused-vars
 import Inspector from 'react-inspector'; // eslint-disable-line no-unused-vars
 
-export default function TestItem({ setTest, deleteTest, test, index }) {
+export default function TestItem({ setTest, deleteTest, test, index, showResults }) {
   return (
     <div className={`test-item ${test.isMatch ? 'is-match' : ''} ${test.isAmbiguous ? 'is-ambiguous' : ''}`}>
       <div className="test-item__content">
@@ -23,10 +23,10 @@ export default function TestItem({ setTest, deleteTest, test, index }) {
           title="Remove test"
         >x</div>
       </div>
-      {test.results.map((result, resultIndex) =>
+      {showResults ? test.results.map((result, resultIndex) =>
         <div className="test-item__output" key={resultIndex}>
           <Inspector data={result}/>
-        </div>)}
+        </div>) : null}
     </div>
   );
 }

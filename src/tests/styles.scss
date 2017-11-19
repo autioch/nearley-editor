@@ -94,3 +94,40 @@
   background-color: transparent;
   color: transparent;
 }
+
+.test__option--errors {
+  color: #777;
+
+  &.is-active {
+    color: #f33;
+  }
+}
+
+.test__option--ambiguous {
+  color: #777;
+
+  &.is-active {
+    color: #ff3;
+  }
+}
+
+.test__option--matches {
+  color: #777;
+
+  &.is-active {
+    color: #3f3;
+  }
+}
+
+.test__option--results {
+  color: #777;
+
+  &.is-active {
+    color: #fff;
+  }
+}
+
+
+.test__checkbox {
+  margin: 0 .25em 0 0;
+}

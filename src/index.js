@@ -8,10 +8,12 @@ import { deleteTab, addTab, setEditorValue, setTabLabel, defaultTabs, setLastId 
 import {
   generateTest, addTest, setTestValue, deleteTest, setLastId as setLastTestId, importTests, exportTests
 } from './tests/manager';
+import debounce from 'lodash.debounce';
 
 import './styles.scss';
 
 const LOCAL_STORAGE_ID = 'nearley-editor-1.0.0';
+const INPUT_DEBOUNCE = 250;
 
 class App extends Component { // eslint-disable-line no-unused-vars
   constructor(props) {
@@ -26,7 +28,7 @@ class App extends Component { // eslint-disable-line no-unused-vars
     this.importTests = this.importTests.bind(this);
     this.resetTabs = this.resetTabs.bind(this);
     this.setActive = this.setActive.bind(this);
-    this.setEditorValue = this.setEditorValue.bind(this);
+    this.setEditorValue = debounce(this.setEditorValue.bind(this), INPUT_DEBOUNCE);
     this.setTabLabel = this.setTabLabel.bind(this);
     this.setTestValue = this.setTestValue.bind(this);
 
