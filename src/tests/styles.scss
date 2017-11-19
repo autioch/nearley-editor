@@ -1,0 +1,96 @@
+.test {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #141414;
+}
+
+.test__list {
+  flex: 1;
+  overflow: auto;
+  padding: .5em;
+}
+
+.test__option-list {
+  border-top: solid 1px #111;
+  display: flex;
+}
+
+.test__option {
+  padding: .5em 1em;
+  text-align: center;
+  cursor: pointer;
+  flex: 1;
+
+  &:hover {
+    color: #6df;
+  }
+
+  + .test__option {
+    border-left: solid 1px #111;
+  }
+}
+
+.test-item {
+  border-left: .4em solid #f33;
+  padding: .5em;
+
+  &.is-match {
+    border-left-color: #3f3;
+  }
+
+  &.is-ambiguous {
+    border-left-color: #ff3;
+  }
+
+  + .test-item  {
+    margin-top: 1em;
+  }
+}
+
+.test-item__content {
+  display: flex;
+  align-items: flex-start;
+}
+
+.test-item__remove {
+  cursor: pointer;
+  padding: 0 .5em;
+  margin-left: .5em;
+  margin-right: -.5em;
+
+  &:hover {
+    color: #6df;
+  }
+}
+
+.test-item__input {
+  flex: 1;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: inherit;
+  color: inherit;
+  border: 0;
+  padding: 0;
+  outline: 0;
+}
+
+.test-item__output {
+  margin-top: .5em;
+}
+
+.test__option--import {
+  position: relative;
+  overflow: hidden;
+  // display: flex;
+}
+
+.test__import {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  height: 1px;
+  background-color: transparent;
+  color: transparent;
+}

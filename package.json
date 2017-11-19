@@ -1,0 +1,45 @@
+{
+  "scripts": {
+    "dev": "webpack --config ./tools/webpack.config.js --watch --hide-modules",
+    "build": "webpack --config ./tools/webpack.config.js -p --hide-modules",
+    "lint": "eslint ./src --ext .js --quiet --fix",
+    "lint:sass": "sass-lint -c .sass-lint.yml -v -q"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "clean-webpack-plugin": "^0.1.17",
+    "codemirror": "^5.29.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^2.30.1",
+    "lodash": "^4.17.4",
+    "nearley": "2.10.1",
+    "randexp": "^0.4.6",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-inspector": "^2.1.4",
+    "sass-lint": "^1.12.1",
+    "serve-local": "^1.0.0",
+    "webpack-livereload-plugin": "^1.0.0"
+  },
+  "author": "bijection",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.2",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "css-loader": "^0.28.5",
+    "eslint": "^4.11.0",
+    "eslint-config-qb": "^1.0.0",
+    "eslint-plugin-react": "^7.4.0",
+    "node-sass": "^4.5.3",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  }
+}
