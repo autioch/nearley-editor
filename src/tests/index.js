@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; // eslint-disable-line no-unused-vars
 import Item from './item'; // eslint-disable-line no-unused-vars
-import ImportOption from './importOption';
-import FilterOption from './filterOption';
+import ImportOption from './importOption'; // eslint-disable-line no-unused-vars
+import FilterOption from './filterOption'; // eslint-disable-line no-unused-vars
 
 import './styles.scss';
 
@@ -32,7 +32,7 @@ export default class Tests extends Component {
     });
   }
 
-  /* TODO This must be cleanedup. */
+  /* TODO This must be cleaned up. */
   render() {
     const { tests, addTest, generateTest, setTestValue, importTests, deleteTest, exportTests } = this.props;
     const { errors, amb, matches, results } = this.state;
@@ -59,12 +59,7 @@ export default class Tests extends Component {
         <div className="test__list">
           {visibleTests.map((t, index) =>
             <Item
-              key={t.id}
-              index={index}
-              setTest={setTestValue}
-              deleteTest={deleteTest}
-              test={t}
-              showResults={results}
+              key={t.id} index={index} setTest={setTestValue} deleteTest={deleteTest} test={t} showResults={results}
             />
           )}
         </div>
@@ -72,13 +67,10 @@ export default class Tests extends Component {
           <FilterOption isActive={errors} count={errorsCount} label="error" stateKey="errors" toggle={this.toggle} />
           <FilterOption isActive={amb} count={ambCount} label="ambiguous" stateKey="ambiguous" toggle={this.toggle} />
           <FilterOption isActive={matches} count={matchesCount} label="match" stateKey="matches" toggle={this.toggle} />
-          <div
-            className={`test__option test__option--results ${results ? 'is-active' : ''}`}
-            onClick={() => this.toggle('results')}
-          >Results</div>
+          <FilterOption isActive={results} count={''} label="Results" stateKey="results" toggle={this.toggle} />
         </div>
         <div className="test__option-list">
-          <div className="test__option" onClick={addTest}>Add</div>
+          <div className="test__option" onClick={addTest}>Add test</div>
           <div className="test__option" onClick={generateTest}>Generate</div>
           <ImportOption importTests={importTests} />
           <div className="test__option" onClick={exportTests}>Export</div>

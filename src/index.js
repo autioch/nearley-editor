@@ -155,4 +155,4 @@ class App extends Component { // eslint-disable-line no-unused-vars
   }
 }
 
-ReactDOM.render(<App/>, document.body);
+ReactDOM.render(<App/>, document.querySelector('.app'));
