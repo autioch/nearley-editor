@@ -1,6 +1,7 @@
 import React, { Component } from 'react'; // eslint-disable-line no-unused-vars
 import Item from './item'; // eslint-disable-line no-unused-vars
-import ImportOption from './import';
+import ImportOption from './importOption';
+import FilterOption from './filterOption';
 
 import './styles.scss';
 
@@ -9,9 +10,10 @@ export default class Tests extends Component {
     super(props);
 
     this.checkKeyPress = this.checkKeyPress.bind(this);
+    this.toggle = this.toggle.bind(this);
     this.state = {
       errors: true,
-      ambiguous: true,
+      amb: true,
       matches: true,
       results: false
     };
@@ -33,15 +35,15 @@ export default class Tests extends Component {
   /* TODO This must be cleanedup. */
   render() {
     const { tests, addTest, generateTest, setTestValue, importTests, deleteTest, exportTests } = this.props;
-    const { errors, ambiguous, matches, results } = this.state;
+    const { errors, amb, matches, results } = this.state;
 
     let visibleTests = tests;
-    const ambiguousCount = tests.filter((test) => test.isAmbiguous).length;
+    const ambCount = tests.filter((test) => test.isamb).length;
     const errorsCount = tests.filter((test) => !test.isMatch).length;
     const matchesCount = tests.filter((test) => test.isMatch).length;
 
-    if (!ambiguous) {
-      visibleTests = visibleTests.filter((test) => !test.isAmbiguous);
+    if (!amb) {
+      visibleTests = visibleTests.filter((test) => !test.isamb);
     }
 
     if (!errors) {
@@ -67,25 +69,16 @@ export default class Tests extends Component {
           )}
         </div>
         <div className="test__option-list">
-          <div
-            className={`test__option test__option--errors ${errors ? 'is-active' : ''}`}
-            onClick={() => this.toggle('errors')}
-          >{errorsCount} error</div>
-          <div
-            className={`test__option test__option--ambiguous ${ambiguous ? 'is-active' : ''}`}
-            onClick={() => this.toggle('ambiguous')}
-          >{ambiguousCount} ambiguous</div>
-          <div
-            className={`test__option test__option--matches ${matches ? 'is-active' : ''}`}
-            onClick={() => this.toggle('matches')}
-          >{matchesCount} match</div>
+          <FilterOption isActive={errors} count={errorsCount} label="error" stateKey="errors" toggle={this.toggle} />
+          <FilterOption isActive={amb} count={ambCount} label="ambiguous" stateKey="ambiguous" toggle={this.toggle} />
+          <FilterOption isActive={matches} count={matchesCount} label="match" stateKey="matches" toggle={this.toggle} />
           <div
             className={`test__option test__option--results ${results ? 'is-active' : ''}`}
             onClick={() => this.toggle('results')}
           >Results</div>
         </div>
         <div className="test__option-list">
-          <div className="test__option" onClick={addTest}>+</div>
+          <div className="test__option" onClick={addTest}>Add</div>
           <div className="test__option" onClick={generateTest}>Generate</div>
           <ImportOption importTests={importTests} />
           <div className="test__option" onClick={exportTests}>Export</div>

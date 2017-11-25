@@ -11,17 +11,9 @@
 }
 
 .cm-wrap {
-  flex: 1;
-  width: 100%;
-  border: 0;
-  outline: none;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-
+  height: 100%;
   .CodeMirror {
     height: 100%;
     box-sizing: border-box;
-    flex: 1;
   }
 }

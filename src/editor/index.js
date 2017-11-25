@@ -8,14 +8,14 @@ export default class Editor extends Component {
     this.cm = codeMirror(this.refs.wrap, this.props.value);
 
     this.cm.on('change', (cm, change) => {
-      if (change.origin != 'setValue') {
+      if (change.origin !== 'setValue') {
         this.props.onChange(cm.getValue());
       }
     });
   }
 
   componentWillReceiveProps(nextprops) {
-    if (nextprops.value != this.cm.getValue()) {
+    if (nextprops.value !== this.cm.getValue()) {
       this.cm.setValue(nextprops.value);
     }
   }

@@ -5,7 +5,7 @@ import './styles.scss';
 
 const importAvailable = window.File && window.FileReader && window.FileList && window.Blob;
 
-export default function Tests({ importTests }) {
+export default function ImportOption({ importTests }) {
   if (!importAvailable) {
     return null;
   }

@@ -1,6 +1,5 @@
 import ReactDOM from 'react-dom';
 import React, { Component } from 'react'; // eslint-disable-line no-unused-vars
-import Header from './header'; // eslint-disable-line no-unused-vars
 import Tabs from './tabs'; // eslint-disable-line no-unused-vars
 import Editor from './editor'; // eslint-disable-line no-unused-vars
 import Tests from './tests'; // eslint-disable-line no-unused-vars
@@ -126,7 +125,6 @@ class App extends Component { // eslint-disable-line no-unused-vars
 
     return (
       <div className="app">
-        <Header />
         <Tabs
           tabs={tabs}
           activeIndex={activeIndex}
@@ -157,4 +155,4 @@ class App extends Component { // eslint-disable-line no-unused-vars
   }
 }
 
-ReactDOM.render(<App/>, document.getElementById('mount'));
+ReactDOM.render(<App/>, document.body);
