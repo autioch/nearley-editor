@@ -4,7 +4,8 @@ export default function ErrorList({ errors }) {
   if (errors.length > 0) {
     return (
       <div className="editor__errors">
-        {errors.map((error, index) => <div className="error-item" key={index}>{error}</div>)}
+        { errors
+          .map((error, index) => <div className="error-item" key={index}><pre>{error.message}</pre></div>)}
       </div>
     );
   }
